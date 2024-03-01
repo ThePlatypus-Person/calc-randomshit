@@ -1,6 +1,4 @@
 const buttonList = document.querySelectorAll('button');
-console.log(buttonList);
-
 
 const screen = document.querySelector('.screen');
 
@@ -25,10 +23,25 @@ buttonList.forEach(button => {
     });
 });
 
-/*
+
+const numberList = '0123456789.'.split('');
+const operatorList = '+-*/'.split('');
+
 window.addEventListener('keydown', (e) => {
+    const keyIsNumber = numberList.includes(e.key);
+    const keyIsOperator = operatorList.includes(e.key);
+
+    if (keyIsNumber) {
+        inputNumber(e.key);
+    } else if (keyIsOperator) {
+        inputOperator(e.key);
+    } else if (e.key === 'Escape') {
+        inputClear();
+    } else if (e.key === 'Enter') {
+        inputEquals();
+    }
+
 });
-*/
 
 function inputClear() {
     tempNum = '';
@@ -107,6 +120,6 @@ function operate(operator, num1, num2) {
         case "*":
             return num1 * num2;
         case "/":
-            return num1 / num2;
+            return (num1 / num2).toFixed(3);
     }
 }

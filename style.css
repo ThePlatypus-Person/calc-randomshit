@@ -38,11 +38,13 @@ body {
     margin-bottom: 20px;
     color: var(--yellow-400);
     font-family: Helvetica;
-    font-size: 60px;
+    font-size: 40px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 0px 5px;
+    overflow: clip;
+    text-align: right;
 }
 
 .keyboard {
